@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+<script>
+    const choices = ['rock', 'paper', 'scissors'];
+    function computerPlay(){
+        const random = Math.floor(Math.random() * choices.length);
+        return choices[random];
+    };
+    let playerSelection = prompt('Choose between paper, rock or scissors!', '');
+    let playerSelectionCaseFix = playerSelection.toLowerCase();
+    let computerSelection = computerPlay();
+    let playerScore = 0;
+    let computerScore = 0;
+    function playRound(playerSelectionCaseFix, computerSelection){
+        let result = '';
+        if(playerSelectionCaseFix === computerSelection){
+            result = 'It\'s a draw!';
+        } else if(playerSelectionCaseFix === 'rock' && (computerSelection != 'rock' && computerSelection != 'paper')){
+            playerScore++;
+            result = `You Win! ${playerSelectionCaseFix} beats ${computerSelection}.`;
+        } else if(playerSelectionCaseFix === 'paper' && (computerSelection != 'paper' && computerSelection != 'scissors')){
+            playerScore++;
+            result = `You Win! ${playerSelectionCaseFix} beats ${computerSelection}.`;
+        } else if(playerSelectionCaseFix === 'scissors' && (computerSelection != 'scissors' && computerSelection != 'rock')){
+            playerScore++;
+            result = `You Win! ${playerSelectionCaseFix} beats ${computerSelection}.`;
+        } else {
+            computerScore++;
+            result = `You lose! ${computerSelection} beats ${playerSelectionCaseFix}.`
+        }
+        return result;
+    }
+    console.log(playRound(playerSelectionCaseFix, computerSelection));
+
+    playerSelection = prompt('Choose between paper, rock or scissors!', '');
+    playerSelectionCaseFix = playerSelection.toLowerCase();
+    computerSelection = computerPlay();
+    console.log(playRound(playerSelectionCaseFix, computerSelection));
+
+    playerSelection = prompt('Choose between paper, rock or scissors!', '');
+    playerSelectionCaseFix = playerSelection.toLowerCase();
+    computerSelection = computerPlay();
+    console.log(playRound(playerSelectionCaseFix, computerSelection));
+
+    playerSelection = prompt('Choose between paper, rock or scissors!', '');
+    playerSelectionCaseFix = playerSelection.toLowerCase();
+    computerSelection = computerPlay();
+    console.log(playRound(playerSelectionCaseFix, computerSelection));
+
+    playerSelection = prompt('Choose between paper, rock or scissors!', '');
+    playerSelectionCaseFix = playerSelection.toLowerCase();
+    computerSelection = computerPlay();
+    console.log(playRound(playerSelectionCaseFix, computerSelection));
+    
+    
+    function gameResults(){
+        if(playerScore > computerScore){
+            console.log('You win the game!');
+        } else {
+            console.log('You lose the game!');
+        }
+    };
+    console.log(gameResults());
+    console.log("Player points = ", playerScore);
+    console.log("Computer points = ", computerScore);
+</script>
+</html>
